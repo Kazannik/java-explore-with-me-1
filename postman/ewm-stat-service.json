@@ -624,7 +624,7 @@
 					"            description: pm.variables.replaceIn('{{$randomLoremParagraphs}}'),",
 					"            eventDate: this.getFutureDateTime(),",
 					"            location: {",
-					"                lon: parseFloat(pm.variables.replaceIn('{{$randomLongitude}}')),",
+					"                lat: parseFloat(pm.variables.replaceIn('{{$randomLatitude}}')),",
 					"                lon: parseFloat(pm.variables.replaceIn('{{$randomLongitude}}')),",
 					"            },",
 					"            paid: pm.variables.replaceIn('{{$randomBoolean}}'),",
