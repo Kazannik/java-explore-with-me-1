@@ -73,7 +73,17 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
+      - name: Run Stat Application
+        if: contains(github.head_ref, 'stat')
+        run: |
+          docker-compose up --detach
+          chmod a+x ./tests/.github/workflows/wait-for-it.sh
+          ./tests/.github/workflows/wait-for-it.sh -t 60 localhost:9090
+          docker-compose ps
+          docker-compose logs
+
       - name: Run Application
+        if:  ${{ !contains(github.head_ref, 'stat') }}
         run: |
           docker-compose up --detach
           chmod a+x ./tests/.github/workflows/wait-for-it.sh
